@@ -1,0 +1,54 @@
+{
+  "name": "homebridge-avpro-edge-matrix",
+  "displayName": "AVPro Edge Matrix",
+  "version": "1.0.0",
+  "description": "Homebridge plugin for AVPro Edge AC-MX HDMI matrix switchers. Each output becomes a HomeKit Television accessory with the matrix inputs as selectable sources, so you can route video per room from the Home app, scenes and Siri.",
+  "author": "Mick Shaw",
+  "license": "MIT",
+  "homepage": "https://github.com/mick-shaw/homebridge-avpro-edge-matrix#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mick-shaw/homebridge-avpro-edge-matrix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mick-shaw/homebridge-avpro-edge-matrix/issues"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "supports-hap",
+    "avpro",
+    "avpro edge",
+    "hdmi matrix",
+    "matrix switcher",
+    "ac-mx-42x",
+    "television"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "config.schema.json",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": "^22.10.0 || ^24.0.0 || ^26.0.0",
+    "homebridge": "^1.8.0 || ^2.0.0"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "lint": "eslint . --max-warnings=0",
+    "test": "npm run build && node test/fake-matrix-test.js",
+    "prepublishOnly": "npm run lint && npm run build",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.0.0",
+    "homebridge": "^2.4.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
