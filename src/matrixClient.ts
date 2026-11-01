@@ -82,7 +82,7 @@ export class MatrixClient extends EventEmitter<MatrixEvents> {
       this.pollTimer = setInterval(() => this.requestAllRoutes(), this.pollIntervalMs);
     });
     sock.on('data', (chunk: Buffer) => this.onData(chunk.toString('ascii')));
-    sock.once('error', (err: Error) => {
+    sock.on('error', (err: Error) => {
       this.log.warn(`Matrix connection error: ${err.message}`);
     });
     sock.once('close', () => {

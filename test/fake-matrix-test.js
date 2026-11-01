@@ -5,9 +5,10 @@ const { MatrixClient } = require('../dist/matrixClient');
 
 const routes = { 1: 2, 2: 2 };
 const clients = new Set();
-const broadcast = (line) => { for (const c of clients) c.write(line + '\r\n'); };
+const broadcast = (line) => { for (const c of clients) { if (!c.destroyed && c.writable) c.write(line + '\r\n'); } };
 const server = net.createServer((sock) => {
   clients.add(sock);
+  sock.on('error', () => {});
   sock.on('close', () => clients.delete(sock));
   let buf = '';
   sock.on('data', (d) => {
