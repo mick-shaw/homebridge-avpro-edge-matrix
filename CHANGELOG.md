@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 (2026-11-01)
+
+* Settings schema: declare required fields as JSON Schema `required` arrays (Homebridge verification check).
+
 ## 1.0.0 (2026-11-01)
 
 Initial release.

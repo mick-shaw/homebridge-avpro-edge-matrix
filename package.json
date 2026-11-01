@@ -1,7 +1,7 @@
 {
   "name": "homebridge-avpro-edge-matrix",
   "displayName": "AVPro Edge Matrix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Homebridge plugin for AVPro Edge AC-MX HDMI matrix switchers. Each output becomes a HomeKit Television accessory with the matrix inputs as selectable sources, so you can route video per room from the Home app, scenes and Siri.",
   "author": "Mick Shaw",
   "license": "MIT",

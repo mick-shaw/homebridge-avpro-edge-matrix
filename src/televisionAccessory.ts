@@ -30,7 +30,7 @@ export class MatrixOutputAccessory {
       .setCharacteristic(Characteristic.Manufacturer, 'AVPro Edge')
       .setCharacteristic(Characteristic.Model, model)
       .setCharacteristic(Characteristic.SerialNumber, `OUT${cfg.output}`)
-      .setCharacteristic(Characteristic.FirmwareRevision, '1.0.0');
+      .setCharacteristic(Characteristic.FirmwareRevision, '1.0.1');
 
     this.tvService = accessory.getService(Service.Television)
       ?? accessory.addService(Service.Television, cfg.name, 'tv');

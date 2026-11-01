@@ -5,9 +5,10 @@
   "headerDisplay": "Each matrix output becomes a HomeKit Television accessory, published as an external accessory and paired separately in the Home app (Add Accessory > More options). Input names appear in the Home app and in scenes.",
   "schema": {
     "type": "object",
+    "required": ["host", "outputs"],
     "properties": {
       "name": { "type": "string", "title": "Name", "default": "AVPro Matrix" },
-      "host": { "type": "string", "title": "Matrix IP address", "required": true, "format": "ipv4" },
+      "host": { "type": "string", "title": "Matrix IP address", "format": "ipv4" },
       "port": { "type": "integer", "title": "Telnet port", "default": 23 },
       "pollInterval": { "type": "integer", "title": "Poll interval (seconds)", "default": 30, "minimum": 5 },
       "commandTimeout": { "type": "integer", "title": "Command confirmation timeout (seconds)", "default": 4, "minimum": 1 },
@@ -18,17 +19,19 @@
         "title": "Outputs",
         "items": {
           "type": "object",
+          "required": ["name", "output", "inputs"],
           "properties": {
-            "name": { "type": "string", "title": "Accessory name (e.g. Kitchen Video)", "required": true },
-            "output": { "type": "integer", "title": "Matrix output number", "required": true, "minimum": 1 },
+            "name": { "type": "string", "title": "Accessory name (e.g. Kitchen Video)" },
+            "output": { "type": "integer", "title": "Matrix output number", "minimum": 1 },
             "inputs": {
               "type": "array",
               "title": "Selectable inputs",
               "items": {
                 "type": "object",
+                "required": ["name", "input"],
                 "properties": {
-                  "name": { "type": "string", "title": "Input name (what you say to Siri)", "required": true },
-                  "input": { "type": "integer", "title": "Matrix input number", "required": true, "minimum": 1 },
+                  "name": { "type": "string", "title": "Input name (shown in the Home app and scenes)" },
+                  "input": { "type": "integer", "title": "Matrix input number", "minimum": 1 },
                   "visible": { "type": "boolean", "title": "Show in Home app", "default": true }
                 }
               }
